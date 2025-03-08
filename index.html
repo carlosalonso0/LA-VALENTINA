@@ -3,714 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Valentina - Restaurante & Grill</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-        
-        :root {
-            --primary: #9c1c1c;
-            --secondary: #f5ebe0;
-            --accent: #d4af37;
-            --dark: #2e2e2e;
-            --light: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 20px 0;
-            position: relative;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-accent {
-            color: var(--accent);
-        }
-        
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .contact-info div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .contact-info i {
-            color: var(--accent);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light);
-            padding: 0 15px;
-        }
-        
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-        
-        .hero-content h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-        
-        .accent-line {
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent);
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: var(--light);
-            border: none;
-            border-radius: 4px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            margin: 10px;
-        }
-        
-        .btn:hover {
-            background-color: #7e1717;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent);
-            color: var(--dark);
-        }
-        
-        /* Menu Section */
-        .menu-section {
-            padding: 80px 0;
-            background-color: var(--secondary);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title .accent-line {
-            width: 80px;
-            margin-bottom: 20px;
-        }
-        
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .menu-category {
-            background-color: var(--light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .menu-category:hover {
-            transform: translateY(-5px);
-        }
-        
-        .category-header {
-            background-color: var(--primary);
-            color: var(--light);
-            padding: 15px 20px;
-        }
-        
-        .category-header h3 {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .category-header h3 span {
-            font-size: 1rem;
-            color: var(--accent);
-        }
-        
-        .menu-items {
-            padding: 20px;
-        }
-        
-        .menu-item {
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 15px;
-        }
-        
-        .menu-item:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        
-        .menu-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        
-        .menu-item-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .menu-item-price {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .menu-item-description {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .footer-section p {
-            margin-bottom: 15px;
-        }
-        
-        .footer-contact span {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .footer-contact i {
-            color: var(--accent);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            
-            .hero-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .menu-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                display: none;
-            }
-        }
-    </style>
+    <title>Restaurante Valentina</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <a href="#" class="logo">La <span class="logo-accent">Valentina</span></a>
-            <div class="contact-info">
-                <div>
-                    <i class="fas fa-phone"></i>
-                    <span>900 319 143</span>
-                </div>
-                <div>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Av. Leguía 1407, Tacna</span>
-                </div>
-            </div>
+        <div class="logo-container">
+            <h1>Valentina</h1>
+            <p class="tagline">RESTAURANTE & GRILL</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="#reservas" class="btn-reserva">Reservas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
+
+    <section id="hero">
         <div class="hero-content">
-            <h1>La <span class="logo-accent">Valentina</span></h1>
-            <div class="accent-line"></div>
-            <h2>Sabores que enamoran en cada bocado</h2>
-            <div>
-                <a href="#menu" class="btn">Ver Menú</a>
-                <a href="#" class="btn btn-outline">Reservar Mesa</a>
-            </div>
+            <h2>Sabores que despiertan emociones</h2>
+            <p>Experiencia gastronómica única en el corazón de la ciudad</p>
+            <a href="#reservas" class="btn-primary">Reservar ahora</a>
         </div>
     </section>
-    
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
+
+    <section id="destacados">
         <div class="container">
-            <div class="section-title">
-                <h2>Nuestro Menú</h2>
-                <div class="accent-line"></div>
-                <p>Una exquisita selección de platos preparados con los mejores ingredientes</p>
-            </div>
-            
-            <div class="menu-container">
-                <!-- Entradas -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Entradas</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Anticucho de Corazón</span>
-                                <span class="menu-item-price">S/.25</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Brocheta de Pollo</span>
-                                <span class="menu-item-price">S/.25</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Causa de Pollo</span>
-                                <span class="menu-item-price">S/.26</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Palta Reina</span>
-                                <span class="menu-item-price">S/.28</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Papa a la Huancaína</span>
-                                <span class="menu-item-price">S/.15</span>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="section-title">Nuestros platos destacados</h2>
+            <div class="platos-grid">
+                <div class="plato-card">
+                    <div class="plato-img plato1"></div>
+                    <h3>Lomo Saltado</h3>
+                    <p>Tradicional y delicioso salteado de lomo fino con vegetales frescos</p>
+                    <span class="precio">S/.45</span>
                 </div>
-                
-                <!-- Sopas -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Sopas & Ensaladas</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ensalada Romana</span>
-                                <span class="menu-item-price">S/.23</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ensalada César</span>
-                                <span class="menu-item-price">S/.20</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Dieta de Pollo</span>
-                                <span class="menu-item-price">S/.18</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Sopa Criolla</span>
-                                <span class="menu-item-price">S/.20</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Caldo de Pollo</span>
-                                <span class="menu-item-price">S/.16</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="plato-card">
+                    <div class="plato-img plato2"></div>
+                    <h3>Ceviche Pesca del Día</h3>
+                    <p>Pescado fresco marinado con limón, ajíes y especias peruanas</p>
+                    <span class="precio">S/.36</span>
                 </div>
-                
-                <!-- Criollos -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Platos Criollos</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Lomo Saltado</span>
-                                <span class="menu-item-price">S/.45</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Lomo a lo Pobre</span>
-                                <span class="menu-item-price">S/.48</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Asado de Res</span>
-                                <span class="menu-item-price">S/.45</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ají de Gallina</span>
-                                <span class="menu-item-price">S/.30</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Costillar Dorado</span>
-                                <span class="menu-item-price">S/.50</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Marinos -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Marinos</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ceviche Pesca del Día</span>
-                                <span class="menu-item-price">S/.36</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ceviche Mixto</span>
-                                <span class="menu-item-price">S/.45</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Arroz con Mariscos</span>
-                                <span class="menu-item-price">S/.42</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Jalea Real</span>
-                                <span class="menu-item-price">S/.46</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Chicharrón de Pescado</span>
-                                <span class="menu-item-price">S/.36</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Chicharrones -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Chicharrones</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Caja China</span>
-                                <span class="menu-item-price">S/.39</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Chicharrón de Cerdo</span>
-                                <span class="menu-item-price">S/.27</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Chicharrón de Pollo</span>
-                                <span class="menu-item-price">S/.25</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Chicharrón Mixto</span>
-                                <span class="menu-item-price">S/.55</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Fuente de Chicharrón Familiar</span>
-                                <span class="menu-item-price">S/.95</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Grill - Cortes -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Grill - Cortes</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Lomo Fino 250gr</span>
-                                <span class="menu-item-price">S/.55</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Entrecott 300gr</span>
-                                <span class="menu-item-price">S/.58</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Bife Chorizo 400gr</span>
-                                <span class="menu-item-price">S/.68</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Entraña 300gr</span>
-                                <span class="menu-item-price">S/.50</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Pulpo y Trucha -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Pulpo & Trucha</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Pulpo al Grill</span>
-                                <span class="menu-item-price">S/.40</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Pulpo a la Chalaca</span>
-                                <span class="menu-item-price">S/.60</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Causa Acevichada con Pulpo al Grill</span>
-                                <span class="menu-item-price">S/.60</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Trucha al Grill</span>
-                                <span class="menu-item-price">S/.43</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Pulpo al Olivo</span>
-                                <span class="menu-item-price">S/.28</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Brasas -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Brasas</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">1/4 Pollo</span>
-                                <span class="menu-item-price">S/.16</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">1/2 Pollo</span>
-                                <span class="menu-item-price">S/.30</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">1 Pollo</span>
-                                <span class="menu-item-price">S/.59</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ofertón (1 Pollo + 1/4)</span>
-                                <span class="menu-item-price">S/.69</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Mostrito</span>
-                                <span class="menu-item-price">S/.28</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Rondas Especiales -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <h3>Rondas Especiales</h3>
-                    </div>
-                    <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ronda Mar y Tierra</span>
-                                <span class="menu-item-price">S/.95</span>
-                            </div>
-                            <div class="menu-item-description">Grill: Pescado, Pulpo, Lomo Fino, Brocheta de Langostino</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ronda Marina</span>
-                                <span class="menu-item-price">S/.95</span>
-                            </div>
-                            <div class="menu-item-description">Ceviche, Causa de Pulpo, Chicharrón de Pescado, Brocheta de Langostino, Arroz con Mariscos o Chaufa de Mariscos</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Ronda Valentina</span>
-                                <span class="menu-item-price">S/.90</span>
-                            </div>
-                            <div class="menu-item-description">Lomo Saltado, Causa de Pollo, Anticucho de Corazón, Brocheta de Pollo</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-header">
-                                <span class="menu-item-name">Duo Valentina</span>
-                                <span class="menu-item-price">S/.60</span>
-                            </div>
-                            <div class="menu-item-description">Causa Limeña + Lomo Saltado</div>
-                        </div>
-                    </div>
+                <div class="plato-card">
+                    <div class="plato-img plato3"></div>
+                    <h3>Pulpo al Grill</h3>
+                    <p>Tentáculos de pulpo marinados y cocinados a la parrilla</p>
+                    <span class="precio">S/.40</span>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
+
+    <section id="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Bienvenidos a Valentina</h2>
+                    <p>En Valentina, fusionamos la tradición culinaria peruana con técnicas modernas para crear una experiencia gastronómica única. Nuestros ingredientes son seleccionados cuidadosamente para garantizar la más alta calidad en cada plato.</p>
+                    <a href="#nosotros" class="btn-secondary">Conocer más</a>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion-preview">
+        <div class="container">
+            <div class="ubicacion-content">
+                <div class="ubicacion-info">
+                    <h2 class="section-title">Visítanos</h2>
+                    <p class="direccion"><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima</p>
+                    <p class="horario"><i class="far fa-clock"></i> Lunes a Domingo: 12:00 - 23:00</p>
+                    <p class="telefono"><i class="fas fa-phone"></i> 90031914</p>
+                    <a href="#contacto" class="btn-secondary">Ver ubicación</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservas">
+        <div class="container">
+            <h2 class="section-title">Reserva tu mesa</h2>
+            <form class="reserva-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="personas">Número de personas</label>
+                        <select id="personas" required>
+                            <option value="">Seleccionar</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                            <option value="6+">6 o más</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora">Hora</label>
+                        <input type="time" id="hora" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje adicional (opcional)</label>
+                    <textarea id="mensaje" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Confirmar reserva</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>La Valentina</h3>
-                    <p>En La Valentina nos dedicamos a ofrecer lo mejor de la gastronomía peruana, con platos tradicionales preparados con ingredientes frescos y de alta calidad.</p>
+                <div class="footer-logo">
+                    <h2>Valentina</h2>
+                    <p>RESTAURANTE & GRILL</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Horario de Atención</h3>
-                    <p>Lunes a Domingo<br>12:00 - 23:00</p>
-                </div>
-                <div class="footer-section footer-contact">
-                    <h3>Contáctanos</h3>
-                    <span><i class="fas fa-phone"></i> 900 319 143</span>
-                    <span><i class="fas fa-map-marker-alt"></i> Av. Leguía 1407, frente del paseo de las aguas, Tacna</span>
+                <div class="footer-info">
+                    <div class="footer-contacto">
+                        <h3>Contacto</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima</p>
+                        <p><i class="fas fa-phone"></i> 90031914</p>
+                        <p><i class="far fa-envelope"></i> info@valentina.com</p>
+                    </div>
+                    <div class="footer-horario">
+                        <h3>Horario</h3>
+                        <p>Lunes a Viernes: 12:00 - 23:00</p>
+                        <p>Sábados y Domingos: 12:00 - 00:00</p>
+                    </div>
+                    <div class="footer-redes">
+                        <h3>Síguenos</h3>
+                        <div class="redes-sociales">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Restaurante La Valentina - Todos los derechos reservados</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Restaurante Valentina. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
