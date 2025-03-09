@@ -405,3 +405,36 @@
         color: var(--blanco-perla);
         font-family: 'Poppins', sans-serif;
     }
+    /* Media queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Reduce el espacio en el header */
+    header {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    /* Reduce el tamaño del logo */
+    .logo-container h1 {
+        font-size: 1.7rem;
+    }
+    
+    /* Reduce el espacio entre elementos de navegación */
+    nav ul li {
+        margin-left: 15px;
+    }
+    
+    /* Reduce el tamaño de texto de navegación */
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    /* Oculta la navegación normal y muestra un menú hamburguesa */
+    nav ul {
+        display: none;
+    }
+    
+    /* Aquí puedes añadir código para un menú hamburguesa si lo deseas */
+}
